@@ -19,10 +19,11 @@ spring:
     gateway:
       routes:
         - id: authentication-service
-          uri: ${AUTHENTICATION_SERVICE_URL:http://localhost:4001}/auth
+          uri: ${AUTHENTICATION_SERVICE_URL:http://primes-service:8080}/auth
           predicates:
             - Path=/auth/**
+
         - id: primes-service
-          uri: ${PRIMES_SERVICE_URL:http://localhost:4001}/primes
+          uri: ${PRIMES_SERVICE_URL:http://primes-service:8080}/primes
           predicates:
             - Path=/primes/**
